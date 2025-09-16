@@ -1,13 +1,23 @@
-const banco= []
+import { readFileSync, writeFileSync } from "fs";
+
+const carregarDados = () => {
+  return JSON.parse(readFileSync("bois.json", "utf-8"));
+};
+
+const salvarDados = (data) => {
+  writeFileSync("bois.json", JSON.stringify(data, null, 2), "utf-8");
+};
 
 const cadastro = function (nome, email, senha) {
+   let data = carregarDados();
+   
     const user = {
         nome: nome,
         email: email,
-    senha: senha
+        senha: senha
 }
-    banco.push(user)
-    console.log(banco)
+    data.users.push(user);
+    salvarDados(data);
 }
 
-    console.log(banco)
+    export default cadastro;
