@@ -1,5 +1,10 @@
 {
     "users":[
-        
+       { "nome": "Ana",
+        "email": "ana@gmail.com",
+        "senha": "12345"
+    },{ "nome": "Bruno",
+        "email": "brunomars@gmai.com",
+        "senha": "54321"}
     ]
 }
