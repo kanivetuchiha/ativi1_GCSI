@@ -3,4 +3,9 @@ function listarOrdemAlfabetica(array) {
   return [...array].sort((a, b) => a.nome.localeCompare(b.nome));
 }
 
-export { listarOrdemAlfabetica };
+
+function listarOrdemAlfabeticaInversa(array) {
+  return [...array].sort((a, b) => b.nome.localeCompare(a.nome));
+}
+
+export { listarOrdemAlfabetica, listarOrdemAlfabeticaInversa };
