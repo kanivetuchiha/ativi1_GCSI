@@ -19,4 +19,28 @@ function atualizarPorId(banco, id, novosDados) {
 }
 
 
+function atualizarPessoa(req, res) {
+  const { id } = req.params; 
+  const novosDados = req.body;
 
+  if (!id) {
+    return res.status(400).json({ erro: 'Parâmetro "id" é obrigatório.' });
+  }
+
+  try {
+    const banco = carregarDados();
+    const atualizado = atualizarPorId(banco, id, novosDados);
+
+    if (atualizado) {
+      salvarDados(banco);
+      res.json({ mensagem: 'Usuário atualizado com sucesso.', usuario: atualizado });
+    } else {
+      res.status(404).json({ mensagem: `Usuário com ID "${id}" não encontrado.` });
+    }
+  } catch (erro) {
+    console.error('Erro ao atualizar os dados:', erro);
+    res.status(500).json({ erro: 'Erro interno no servidor.' });
+  }
+}
+
+export default { atualizarPessoa };
