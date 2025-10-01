@@ -11,21 +11,6 @@ const salvarDados = (data) => {
 const cadastro = function (nome, email, senha) {
   let data = carregarDados();
 
-if (!data) {
-   const user = {
-    nome: nome,
-    email: email,
-    senha: senha
-  };
-
-  data.users.push(user);
-  salvarDados(data);
-  alert("Usuário cadastrado com sucesso!");
-  
-  }else{
-    alert("Erro ao carregar dados!");
-  }
-
   const user = {
     nome: nome,
     email: email,
@@ -34,7 +19,6 @@ if (!data) {
 
   data.users.push(user);
   salvarDados(data);
-  alert("Usuário cadastrado com sucesso!");
 };
 
 module.exports = cadastro;
