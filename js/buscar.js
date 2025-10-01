@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+const { readFileSync } = require('fs');
 
 function carregarDados() {
   return JSON.parse(readFileSync('./banco.json', 'utf-8'));
@@ -35,7 +35,6 @@ function buscarPessoa(req, res) {
   }
 }
 
-// 🔹 Novo endpoint que busca pessoa pelo ID
 function buscarPessoaPorId(req, res) {
   const { id } = req.query;
 
@@ -58,4 +57,4 @@ function buscarPessoaPorId(req, res) {
   }
 }
 
-export default { buscarPessoa, buscarPessoaPorId };
+module.exports = { buscarPessoa, buscarPessoaPorId };
